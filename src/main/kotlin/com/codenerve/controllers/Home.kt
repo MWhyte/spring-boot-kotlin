@@ -41,7 +41,7 @@ class Home @Autowired constructor(
         return payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance, taxCode)
     }
 
-    //TODO learn coroutines
+    //TODO learn co-routines
     @GetMapping("/fast-tax")
     fun getTaxByEmployeeIdFaster(@RequestParam(value = "name") name: String): Double? {
 
