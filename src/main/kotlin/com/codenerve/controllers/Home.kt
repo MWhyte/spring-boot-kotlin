@@ -37,7 +37,7 @@ class Home @Autowired constructor(
         val taxAllowance = payrollService.getTaxAllowanceByEmployeeId(employee.id)
         val taxCode = payrollService.getTaxCodeByEmployeeId(employee.id)
 
-        // then join the result
+        // then join the results and call the calculate method
         return payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance, taxCode)
     }
 
@@ -51,7 +51,7 @@ class Home @Autowired constructor(
         val taxAllowance = payrollService.getTaxAllowanceByEmployeeId(employee.id)
         val taxCode = payrollService.getTaxCodeByEmployeeId(employee.id)
 
-        // then join the result
+        // then join the results and call the calculate method
         return payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance, taxCode)
     }
 }
