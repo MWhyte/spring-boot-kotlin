@@ -12,9 +12,8 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.concurrent.atomic.AtomicLong
 
 @RestController
-class Home @Autowired constructor(
-        private val employeeService: EmployeeService,
-        private val payrollService: PayrollService) {
+class Home @Autowired constructor(private val employeeService: EmployeeService,
+                                  private val payrollService: PayrollService) {
 
     private val logger = KotlinLogging.logger {}
     val counter = AtomicLong()
