@@ -1,5 +1,6 @@
 package com.codenerve.controllers
 
+import com.codenerve.models.Greeting
 import mu.KotlinLogging
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -17,10 +18,8 @@ class Home {
     val counter = AtomicLong()
 
     @GetMapping("/greeting")
-    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) = run {
+    fun greeting(@RequestParam(value = "name", defaultValue = "World") name: String) : Greeting {
         logger.info { "Greeting controller called with param name=$name" }
-        Greeting(counter.incrementAndGet(), "Hello, $name")
+        return Greeting(counter.incrementAndGet(), "Hello, $name")
     }
 }
-
-data class Greeting(val id: Long, val content: String)
