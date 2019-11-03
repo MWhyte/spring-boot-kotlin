@@ -49,17 +49,15 @@ class Home @Autowired constructor(private val employeeService: EmployeeService,
 
         val employee: Employee = employeeService.getEmployeeByName(name)
 
-        var taxAllowance: Deferred<Int>
-        var taxCode: Deferred<Int>
         var calculateMonthlyTax = 0.0
 
         runBlocking {
-            taxAllowance = async {  payrollService.getTaxAllowanceByEmployeeIdFast(employee.id) }
-            taxCode = async {  payrollService.getTaxCodeByEmployeeIdFast(employee.id) }
+            val taxAllowance: Deferred<Int> = async {  payrollService.getTaxAllowanceByEmployeeIdFast(employee.id) }
+            val taxCode: Deferred<Int> = async {  payrollService.getTaxCodeByEmployeeIdFast(employee.id) }
 
             // then join the results and call the calculate method
-            calculateMonthlyTax = payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance.await(), taxCode.await())
-            println(calculateMonthlyTax)
+            calculateMonthlyTax =
+                    payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance.await(), taxCode.await())
         }
 
         return  calculateMonthlyTax
