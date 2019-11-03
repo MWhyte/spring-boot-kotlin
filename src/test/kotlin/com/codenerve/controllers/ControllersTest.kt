@@ -11,7 +11,7 @@ import org.springframework.boot.test.web.client.getForEntity
 import org.springframework.http.HttpStatus
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class HomeTest(@Autowired val restTemplate: TestRestTemplate) {
+class ControllersTest(@Autowired val restTemplate: TestRestTemplate) {
 
     @Test
     fun `Assert Home page content and status code`() {

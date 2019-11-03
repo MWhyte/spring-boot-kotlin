@@ -10,7 +10,6 @@ class PayrollService {
     private val delay: Long = 2_000
 
     fun getTaxAllowanceByEmployeeId(id: Long): Int {
-        //TODO Make this a slow service
         Thread.sleep(delay)
         return Random.nextInt(1000, 3000)
     }
@@ -20,13 +19,12 @@ class PayrollService {
         return Random.nextInt(1, 3)
     }
 
-
-    suspend fun getTaxAllowanceByEmployeeIdFast(id: Long): Int {
+    suspend fun getTaxAllowanceByEmployeeIdFaster(id: Long): Int {
         delay(delay)
         return Random.nextInt(1000, 3000)
     }
 
-    suspend fun getTaxCodeByEmployeeIdFast(id: Long): Int {
+    suspend fun getTaxCodeByEmployeeIdFaster(id: Long): Int {
         delay(delay)
         return Random.nextInt(1, 3)
     }

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.concurrent.atomic.AtomicLong
 
 @RestController
-class Home @Autowired constructor(private val employeeService: EmployeeService,
-                                  private val payrollService: PayrollService) {
+class Controllers @Autowired constructor(private val employeeService: EmployeeService,
+                                         private val payrollService: PayrollService) {
 
     private val logger = KotlinLogging.logger {}
     val counter = AtomicLong()
@@ -41,7 +41,7 @@ class Home @Autowired constructor(private val employeeService: EmployeeService,
         return payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance, taxCode)
     }
 
-    //TODO learn co-routines
+    //TODO learn more about co-routines!
     @GetMapping("/fast-tax")
     fun getTaxByEmployeeIdFasterAsync(@RequestParam(value = "name") name: String): Double {
 
@@ -52,8 +52,8 @@ class Home @Autowired constructor(private val employeeService: EmployeeService,
         var calculateMonthlyTax = 0.0
 
         runBlocking {
-            val taxAllowance: Deferred<Int> = async {  payrollService.getTaxAllowanceByEmployeeIdFast(employee.id) }
-            val taxCode: Deferred<Int> = async {  payrollService.getTaxCodeByEmployeeIdFast(employee.id) }
+            val taxAllowance: Deferred<Int> = async {  payrollService.getTaxAllowanceByEmployeeIdFaster(employee.id) }
+            val taxCode: Deferred<Int> = async {  payrollService.getTaxCodeByEmployeeIdFaster(employee.id) }
 
             // then join the results and call the calculate method
             calculateMonthlyTax =
