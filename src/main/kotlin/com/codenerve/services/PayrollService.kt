@@ -7,7 +7,7 @@ import kotlin.random.Random
 @Service
 class PayrollService {
 
-    private val delay: Long = 3_000
+    private val delay: Long = 2_000
 
     fun getTaxAllowanceByEmployeeId(id: Long): Int {
         //TODO Make this a slow service
