@@ -2,6 +2,16 @@
 
 Learning about spring boots support for Kotlin 
 
+Including:
+- Basic DI / Autowiring
+- Rest Controllers
+- Logging
+- Tracing
+- Support for RestTemplate / JUnit 5 / Hamcrest
+
+---
+
+##### External dependencies
 ###### Zipkin
 An instance of zipkin is required to avoid errors on start up and to
 support tracing.
