@@ -28,7 +28,7 @@ class Home @Autowired constructor(private val employeeService: EmployeeService,
     }
 
     @GetMapping("/tax")
-    fun getTaxByEmployeeId(@RequestParam(value = "name") name: String): Double? {
+    fun getTaxByEmployeeId(@RequestParam(value = "name") name: String): Double {
 
         val employee: Employee = employeeService.getEmployeeByName(name)
 
@@ -42,7 +42,7 @@ class Home @Autowired constructor(private val employeeService: EmployeeService,
 
     //TODO learn co-routines
     @GetMapping("/fast-tax")
-    fun getTaxByEmployeeIdFaster(@RequestParam(value = "name") name: String): Double? {
+    fun getTaxByEmployeeIdFaster(@RequestParam(value = "name") name: String): Double {
 
         val employee: Employee = employeeService.getEmployeeByName(name)
 
