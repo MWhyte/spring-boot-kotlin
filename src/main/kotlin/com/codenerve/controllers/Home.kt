@@ -4,6 +4,7 @@ import com.codenerve.models.Greeting
 import com.codenerve.services.EmployeeService
 import com.codenerve.services.EmployeeService.Employee
 import com.codenerve.services.PayrollService
+import kotlinx.coroutines.*
 import mu.KotlinLogging
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
@@ -42,15 +43,25 @@ class Home @Autowired constructor(private val employeeService: EmployeeService,
 
     //TODO learn co-routines
     @GetMapping("/fast-tax")
-    fun getTaxByEmployeeIdFaster(@RequestParam(value = "name") name: String): Double {
+    fun getTaxByEmployeeIdFasterAsync(@RequestParam(value = "name") name: String): Double {
+
+        logger.info { "fast-tax controller called with param name=$name" }
 
         val employee: Employee = employeeService.getEmployeeByName(name)
 
-        // these two methods calls could be run asynchronously
-        val taxAllowance = payrollService.getTaxAllowanceByEmployeeId(employee.id)
-        val taxCode = payrollService.getTaxCodeByEmployeeId(employee.id)
+        var taxAllowance: Deferred<Int>
+        var taxCode: Deferred<Int>
+        var calculateMonthlyTax = 0.0
 
-        // then join the results and call the calculate method
-        return payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance, taxCode)
+        runBlocking {
+            taxAllowance = async {  payrollService.getTaxAllowanceByEmployeeIdFast(employee.id) }
+            taxCode = async {  payrollService.getTaxCodeByEmployeeIdFast(employee.id) }
+
+            // then join the results and call the calculate method
+            calculateMonthlyTax = payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance.await(), taxCode.await())
+            println(calculateMonthlyTax)
+        }
+
+        return  calculateMonthlyTax
     }
 }

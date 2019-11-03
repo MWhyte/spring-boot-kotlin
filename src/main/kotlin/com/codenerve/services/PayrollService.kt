@@ -1,18 +1,33 @@
 package com.codenerve.services
 
+import kotlinx.coroutines.delay
 import org.springframework.stereotype.Service
-import java.lang.Exception
 import kotlin.random.Random
 
 @Service
 class PayrollService {
 
+    private val delay: Long = 3_000
+
     fun getTaxAllowanceByEmployeeId(id: Long): Int {
         //TODO Make this a slow service
+        Thread.sleep(delay)
         return Random.nextInt(1000, 3000)
     }
 
     fun getTaxCodeByEmployeeId(id: Long): Int {
+        Thread.sleep(delay)
+        return Random.nextInt(1, 3)
+    }
+
+
+    suspend fun getTaxAllowanceByEmployeeIdFast(id: Long): Int {
+        delay(delay)
+        return Random.nextInt(1000, 3000)
+    }
+
+    suspend fun getTaxCodeByEmployeeIdFast(id: Long): Int {
+        delay(delay)
         return Random.nextInt(1, 3)
     }
 
