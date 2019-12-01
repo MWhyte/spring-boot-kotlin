@@ -17,7 +17,7 @@ class Controllers @Autowired constructor(private val employeeService: EmployeeSe
                                          private val payrollService: PayrollService) {
 
     private val logger = KotlinLogging.logger {}
-    val counter = AtomicLong()
+    private val counter = AtomicLong()
 
     @GetMapping("/")
     fun home() = "hello world"
