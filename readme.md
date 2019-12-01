@@ -6,11 +6,19 @@ Including:
 - Basic DI / Autowiring
 - Rest Controllers
 - Logging
-- Tracing
+- Tracing (zipkin)
 - Support for RestTemplate / JUnit 5 / Hamcrest
+- Swagger Docs
 
 
 ---
+
+#####  Swagger Doc's
+
+You can view availible rest endpoints using swagger:
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+--- 
 
 ##### External dependencies
 ###### Zipkin
