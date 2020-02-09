@@ -75,6 +75,16 @@
             <version>2.9.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
+
         <!--    TEST    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
