@@ -18,6 +18,7 @@ Including:
 You can view available rest endpoints using swagger:
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
 
+
 --- 
 
 ##### External dependencies
