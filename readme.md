@@ -10,9 +10,8 @@ Including:
 - Support for RestTemplate / JUnit 5 / Hamcrest
 - Swagger Docs
 
-
 ---
-
+ 
 #####  Swagger Doc's
 
 You can view available rest endpoints using swagger:
