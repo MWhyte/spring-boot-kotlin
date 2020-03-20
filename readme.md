@@ -10,7 +10,6 @@ Including:
 - Support for RestTemplate / JUnit 5 / Hamcrest
 - Swagger Docs
 
-
 ---
  
 #####  Swagger Doc's
