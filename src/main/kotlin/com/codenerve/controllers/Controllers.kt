@@ -41,7 +41,6 @@ class Controllers @Autowired constructor(private val employeeService: EmployeeSe
         return payrollService.calculateMonthlyTax(employee.employeeSalary, taxAllowance, taxCode)
     }
 
-    //TODO learn more about co-routines!
     @GetMapping("/fast-tax")
     fun getTaxByEmployeeIdFasterAsync(@RequestParam(value = "name") name: String): Double {
 
