@@ -9,6 +9,8 @@ Including:
 - Tracing (zipkin)
 - Support for RestTemplate / JUnit 5 / Hamcrest
 - Swagger Docs
+- Prometheus
+- Grafana
 
 ---
  
@@ -21,12 +23,10 @@ You can view available rest endpoints using swagger:
 --- 
 
 ##### External dependencies
-###### Zipkin
-An instance of zipkin is required to avoid errors on start up and to
-support tracing.
 
-Install via docker:
+See ```<project_root>/docker/start.sh``` to setup external dependencies:
 
-`docker run -d -p 9411:9411 openzipkin/zipkin`
-
-Other methods on the [zipkin](https://zipkin.io/pages/quickstart) website
+- Zipkin server
+- Prometheus
+- Grafana
+    - N.B. setting up grafana is currently manual and uses a dashboard template (id=10280) which can easily be imported.
