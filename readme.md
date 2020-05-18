@@ -1,4 +1,5 @@
 # spring-boot-kotlin
+![Java CI with Maven](https://github.com/MWhyte/spring-boot-kotlin/workflows/Java%20CI%20with%20Maven/badge.svg)
 
 Learning about spring boots support for Kotlin 
 
