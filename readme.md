@@ -24,9 +24,18 @@ You can view available rest endpoints using swagger:
 
 ##### External dependencies
 
+docker is required
+
 See ```<project_root>/docker/start.sh``` to setup external dependencies:
 
 - Zipkin server
 - Prometheus
 - Grafana
     - N.B. setting up grafana is currently manual and uses a dashboard template (id=10280) which can easily be imported.
+    
+    
+##### Running local
+
+- run ```<project_root>/docker/start.sh``` and ensure
+- run ```KotlinMicroServiceApplication``` from your IDE or CMD line.
+- run ```<project_root>/docker/open.sh``` to open relevant urls in your default browser
