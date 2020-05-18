@@ -36,6 +36,7 @@ See ```<project_root>/docker/start.sh``` to setup external dependencies:
     
 ##### Running local
 
-- run ```<project_root>/docker/start.sh``` and ensure
+- Update PROJECT_DIR in ```<project_root>/docker/start.sh``` to the location you have checked out this code
+- run ```<project_root>/docker/start.sh``` and ensure three Docker containers have successfully been created
 - run ```KotlinMicroServiceApplication``` from your IDE or CMD line.
 - run ```<project_root>/docker/open.sh``` to open relevant urls in your default browser
